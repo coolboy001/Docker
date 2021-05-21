@@ -1,0 +1,75 @@
+# sudo docker run -p 3535:80 nginx
+Chroot
+# mkdir jail
+# cd jail
+# cp -r /bin/*  bin/
+# cp -r /lib/* lib/
+# cp -r /lib64/* lib64/
+# sudo chroot /home/wm/Desktop/Docker/jail
+
+Cgroups:
+#  cd /sys/fs/cgroup/
+#  systemd-cgls cpu
+#  systemd-cgls memory
+#  /sys/fs/cgroup/devices$ sudo mkdir cop1
+
+# Talk about old way / new way
+# sudo docker container run hello-world
+# sudo docker run hello-world
+
+run with default command
+	# sudo docker container run ubuntu
+	# sudo docker container run ubuntu echo "hello"
+	# sudo docker container run ubuntu ls
+
+list out all the stopped container
+        # sudo dockcer container ls -a
+	# sudo docker ps -all
+
+Start the already stopped container
+	# sudo docker container start <contianer-id>
+	# sudo docker start <contianer-id>
+	-a flag
+
+Stop the already running container
+	# sudo docker container stop <container-id>
+	# sudo docker contianer kill <cotntainer-id>
+
+Remove the already stoped container:
+	# sudo docker container rm <container-id>
+	# sudo docker container prune
+
+Port Mapping
+	# sudo docker container run -p 3435:80 nginx
+
+exec a command in a running container
+	# sudo docker container exec -it <contaner-id> /bin/bash
+
+logs of a running container:
+	# sudo docker container logs <container-id>
+
+diff command
+	# sudo docker container run -it ubuntu /bin/bash
+	# apt-get update
+	# app-get install tree
+export a running container
+         #sudo docker container export 7f06 > ab.tar
+sudo docker container cp . 7f069bf77a72:/usr/app
+___________________________________________________________________________________________________________________________________________
+
+
+Image:
+Search an Image
+# docker search nginx
+
+Tell about docker hub
+# sudo docker image pull nginx
+# sudo docker image ls
+# sudo docker image prune
+# sudo docker image import ab.tar importimage
+# sudo docker commit -m "Tree with ubuntu" 7f069bf77a72 commiimage
+# sudo docker image history commiimage
+# sudo  docker run --name some-postgres1 -e POSTGRES_PASSWORD=mysecretpassword -v abc:/var/lib/postgresql/data  -d postgres
+# mysql -u root -p
+
+DockerFile:
